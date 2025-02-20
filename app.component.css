@@ -1,0 +1,56 @@
+/* app.component.css */
+.card-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid hsla(131, 70%, 57%, 0.816);
+    border-radius: 8px;
+    background-color: #619a5f;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  .card-preview {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .card-image {
+    width: 250px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  

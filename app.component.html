@@ -1,0 +1,42 @@
+<!-- app.component.html -->
+<div class="card-form-container">
+  <h2>Enter Bank Card Details</h2>
+  
+  <form #cardForm="ngForm" (ngSubmit)="onSubmit(cardForm)">
+    <div class="form-group">
+      <label for="cardOwner">Card Owner:</label>
+      <input type="text" id="cardOwner" name="cardOwner" [(ngModel)]="card.cardOwner" required #cardOwner="ngModel">
+      <div *ngIf="cardOwner.invalid && cardOwner.touched" class="error">Card Owner is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="card.cardNumber" required pattern="\d{16}" maxlength="16" #cardNumber="ngModel">
+      <div *ngIf="cardNumber.invalid && cardNumber.touched" class="error">Card number is required and must be 16 digits.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="month" id="expiryDate" name="expiryDate" [(ngModel)]="card.expiryDate" required #expiryDate="ngModel">
+      <div *ngIf="expiryDate.invalid && expiryDate.touched" class="error">Expiry date is required.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv" [(ngModel)]="card.cvv" required pattern="\d{3}" maxlength="3" #cvv="ngModel">
+      <div *ngIf="cvv.invalid && cvv.touched" class="error">CVV is required and must be 3 digits.</div>
+    </div>
+
+    <button type="submit" [disabled]="cardForm.invalid">Submit</button>
+  </form>
+
+  <!-- Display Card Image and Details (Always Visible) -->
+  <div class="card-preview">
+    <img src="https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-classic-card-498x280.png" alt="Bank Card Image" class="card-image">
+
+    <!-- Display card details -->
+    <p>Card Number: {{ card.cardNumber || 'XXXX XXXX XXXX XXXX' }}</p>
+    <p>Expiry Date: {{ card.expiryDate || 'MM/YY' }}</p>
+    <p>CVV: {{ card.cvv || 'XXX' }}</p>
+  </div>
+</div>
